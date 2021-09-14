@@ -1,7 +1,7 @@
 
 spring:
   application:
-    name: projectBackend
+    name: project
   datasource:
     name: postgres
     url: jdbc:postgresql://localhost:5432/postgres
@@ -39,4 +39,4 @@ server:
     #spring.jpa.properties.hibernate.format_sql=true
   #spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQL92Dialect
   #server.port=8085
-  
+
