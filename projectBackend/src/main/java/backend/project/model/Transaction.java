@@ -3,6 +3,7 @@ package backend.project.model;
 import java.util.Date;
 
 public class Transaction {
+
     private  Integer txId;
     private String txHost;
     private Integer txUserId;

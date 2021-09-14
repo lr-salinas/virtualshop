@@ -22,6 +22,7 @@ public class TransactionBl {
         Integer lastPrimaryKey = this.transactionDao.getLastInsertId();
 
         transaction.setTxId(lastPrimaryKey);
+
         return transaction;
     }
 }
