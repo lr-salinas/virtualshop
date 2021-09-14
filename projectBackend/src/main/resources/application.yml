@@ -1,0 +1,42 @@
+
+spring:
+  application:
+    name: projectBackend
+  datasource:
+    name: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: rebe
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-test-query: select 1
+      maximum-pool-size: 2
+      connection-timeout: 60000
+  jpa:
+    show-sql: true
+logging:
+  level:
+    com:
+      spring:
+        ibatis:
+          UsepMapper=DEBUG:
+mybatis:
+  configuration:
+    default-fetch-size: 100
+    default-statement-timeout: 30
+  mapper-locations: classpath:/dao/*Dao.xml
+
+server:
+  error:
+    include-message: always
+  port: 8085
+
+  #spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+    #spring.datasource.username=postgres
+    #spring.datasource.password=rebe
+    #
+    #spring.jpa.show-sql=true
+    #spring.jpa.properties.hibernate.format_sql=true
+  #spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQL92Dialect
+  #server.port=8085
+  
