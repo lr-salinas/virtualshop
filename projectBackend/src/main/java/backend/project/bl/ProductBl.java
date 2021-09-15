@@ -10,15 +10,15 @@ import java.util.List;
 
 @Service
 public class ProductBl {
-    private TransactionDao transactionDao;
     private ProductDao productDao;
+    private TransactionDao transactionDao;
 
-    @Autowired
-    public ProductBl(TransactionDao transactionDao, ProductDao productDao){
-        this.transactionDao = transactionDao;
+   /* @Autowired
+    public ProductBl(ProductDao productDao, TransactionDao transactionDao){
         this.productDao = productDao;
+        this.transactionDao = transactionDao;
 
-    }
+    }*/
 
     public Product detailsByproductId (Integer productid){
         //Product p = productDao.productdetails(productid);
