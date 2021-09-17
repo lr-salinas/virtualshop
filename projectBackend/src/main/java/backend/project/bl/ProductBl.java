@@ -1,5 +1,6 @@
 package backend.project.bl;
 
+import backend.project.dao.MediaDao;
 import backend.project.dao.ProductDao;
 import backend.project.dao.TransactionDao;
 import backend.project.model.Product;
@@ -13,11 +14,10 @@ public class ProductBl {
     private ProductDao productDao;
     private TransactionDao transactionDao;
 
-   /* @Autowired
+    /*@Autowired
     public ProductBl(ProductDao productDao, TransactionDao transactionDao){
         this.productDao = productDao;
         this.transactionDao = transactionDao;
-
     }*/
 
     public Product detailsByproductId (Integer productid){
