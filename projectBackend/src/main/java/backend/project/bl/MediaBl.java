@@ -25,9 +25,9 @@ public class MediaBl {
     public Media insertmedia(MediaRequest mediaRequest, Integer id, Transaction transaction){
         Media media = new Media();
         media.setProductId(id);
-        media.setCreationDate(new Date());
         media.setUrl(mediaRequest.getUrl());
         media.setType(mediaRequest.getType());
+        media.setCreationDate(new Date());
         media.setTransaction(transaction);
         mediaDao.insertImage(media);
 

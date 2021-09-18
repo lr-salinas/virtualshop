@@ -1,6 +1,6 @@
-package backend.project.model;
+package backend.project.dto;
 
-public class User {
+public class UserUpdate {
     private Integer userId;
     private Integer addressId;
     private String name;
@@ -10,11 +10,9 @@ public class User {
     private String telephone;
     private String username;
     private String password;
-    private Integer status;
-    private Transaction transaction;
 
-    public User(){
-        transaction = new Transaction();
+    public UserUpdate(){
+
     }
 
     public Integer getUserId() {
@@ -89,36 +87,5 @@ public class User {
         this.password = password;
     }
 
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Transaction getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", addressId=" + addressId +
-                ", name='" + name + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", email='" + email + '\'' +
-                ", cellphone='" + cellphone + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", status=" + status +
-                ", transaction=" + transaction +
-                '}';
-    }
 }
+

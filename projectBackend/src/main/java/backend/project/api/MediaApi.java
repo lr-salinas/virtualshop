@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/products")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class MediaApi {
 
     private MediaBl mediaBl;
@@ -32,8 +33,7 @@ public class MediaApi {
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
         Media mediaResponse = mediaBl.insertmedia(mediaRequest,id,transaction);
-
-        return mediaResponse;
+                return mediaResponse;
     }
 
     @RequestMapping(value = "/{idproduct}/media", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -41,5 +41,4 @@ public class MediaApi {
 
         return mediaBl.getListMedia(idproduct);
     }
-
 }

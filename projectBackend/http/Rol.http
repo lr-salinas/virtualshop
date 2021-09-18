@@ -1,0 +1,12 @@
+###
+POST http://localhost:8085/rol/userRol/2
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "gerente de ventas",
+  "rol_status" : 1
+}
+
+###
+
