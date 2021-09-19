@@ -3,55 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="backend.project.dao.AddressDao">
-    <select id="addressId" resultType="backend.project.model.Address">
-        SELECT
-           address_id as addressId,
-           address as address,
-           number_house as numberHouse,
-           reference as reference,
-           status as status
+ <insert id="createAddress" parameterType="backend.project.dto.UserRequest">
+     INSERT INTO address VALUES (null, #{addressId}, #{numberHouse},{#reference},
+     1,#{txId},#{txHost}, #{txUserId}, #{txDate})
+ </insert>
 
-        FROM address
-        WHERE
-           address_id = #{addressId} as status = 1
-    </select>
-
-    <resultMap id="addressResultMap" type="backend.project.model.Address">
-        <id column="addressId" property="addressId"></id>
-        <result column="address" property="address"></result>
-        <result column="number_house" property="numberHouse"></result>
-        <result column="reference" property="reference"></result>
-    </resultMap>
-
-    <select id="getAddress" resultMap="addressResultMap">
-        SELECT
-           address_id as addressId,
-           address as address,
-           number_house as numberHouse,
-           reference as reference,
-           status as status
-        FROM address
-        WHERE
-            status = 1
-    </select>
-
-    <insert id="newAddress" parameterType="backend.project.model.Address">
-        INSERT INTO address VALUES(
-           null,
-           #{address},
-           #{numberHouse},
-           #{reference},
-           #{status},
-           #{transaction.txId},
-           #{transaction.txHost},
-           #{transaction.txUserId},
-           #{transaction.txDate}
-        )
-    </insert>
-
-    <update id="updateAddress" parameterType="backend.project.model.Address">
-        UPDATE address SET address=#{address}, number_house=#{numberHouse},reference=#{reference}
-        WHERE address_id= #{addressId} and status = 1
+    <update id="updateAddress" parameterType="backend.project.dto.UserUpdate">
+        UPDATE address SET address=#{address}, number_house=#{numberHouse},reference=#{reference},
+        tx_id = #{txId}, tx_host ={txHost}, tx_user_id = #{txUserId}, tx_date =#{txDate}
+        WHERE address_id= #{addressId} and tx_status = 1
     </update>
-
 </mapper>

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/products")
+@RequestMapping(value = "/product")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class MediaApi {
 
