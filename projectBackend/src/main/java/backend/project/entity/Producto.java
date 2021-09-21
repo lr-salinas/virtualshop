@@ -25,13 +25,14 @@ public class Producto {
 	private int color;
 	private int quantity;
 	private double costProduct;
+	private String image;
 	private int status;
 	
 	public Producto () {
 		super();
 	}
 	
-	public Producto(int product_id, String product_name, String details, String size,int stock, int color, int quantity, double costProduct, int status) {
+	public Producto(int product_id, String product_name, String details, String size,int stock, int color, int quantity, double costProduct,String image, int status) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
@@ -39,6 +40,7 @@ public class Producto {
 		this.size = size;
 		this.color = color;
 		this.costProduct= costProduct;
+		this.image = image;
 		this.status = status;
 	}
 
@@ -99,6 +101,14 @@ public class Producto {
 		this.status = status;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public int getStock() {
 		return stock;
 	}
@@ -114,15 +124,20 @@ public class Producto {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-		
+
 	@Override
 	public String toString() {
-		return "Producto [product_id=" + product_id + ", product_name=" + product_name + ", details=" + details
-				+ ", size=" + size + ", stock=" + stock + ", color=" + color + ", quantity=" + quantity
-				+ ", costProduct=" + costProduct + ", status=" + status + "]";
+		return "Producto{" +
+				"product_id=" + product_id +
+				", product_name='" + product_name + '\'' +
+				", details='" + details + '\'' +
+				", size='" + size + '\'' +
+				", stock=" + stock +
+				", color=" + color +
+				", quantity=" + quantity +
+				", costProduct=" + costProduct +
+				", image='" + image + '\'' +
+				", status=" + status +
+				'}';
 	}
-
-	
-	
-	
 }
