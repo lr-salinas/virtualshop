@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="backend.project.dao.AddressDao">
+ <insert id="createAddress" parameterType="backend.project.dto.UserRequest">
+     INSERT INTO address VALUES (null, #{addressId}, #{numberHouse},{#reference},
+     1,#{txId},#{txHost}, #{txUserId}, #{txDate})
+ </insert>
+
+    <update id="updateAddress" parameterType="backend.project.dto.UserUpdate">
+        UPDATE address SET address=#{address}, number_house=#{numberHouse},reference=#{reference},
+        tx_id = #{txId}, tx_host ={txHost}, tx_user_id = #{txUserId}, tx_date =#{txDate}
+        WHERE address_id= #{addressId} and tx_status = 1
+    </update>
+</mapper>

@@ -1,0 +1,20 @@
+###
+POST http://localhost:8080/product
+Accept: application/json
+Content-Type: application/json
+
+{
+  "media": "imgsueter.jpg",
+  "productName": "Sueter Illimani",
+  "detail": "Sueter tejido a mano",
+  "size": "M",
+  "color": 1,
+  "price": 250,
+  "quantity": 1,
+  "stock": 20
+
+}
+
+###
+
+
