@@ -1,10 +1,10 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2021-09-14 03:46:38.777
+-- Last modification date: 2021-09-21 19:39:05.14
 
 -- tables
 -- Table: address
 CREATE TABLE address (
-    address_id int  NOT NULL,
+    address_id  SERIAL,
     address varchar(100)  NOT NULL,
     number_house varchar(50)  NOT NULL,
     reference varchar(200)  NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE address (
 
 -- Table: card
 CREATE TABLE card (
-    card_id int  NOT NULL,
+    card_id SERIAL,
     user_id int  NOT NULL,
     card_name varchar(20)  NOT NULL,
     card_number int  NOT NULL,
@@ -36,14 +36,14 @@ CREATE TABLE card (
 
 -- Table: cart
 CREATE TABLE cart (
-    cart_id int  NOT NULL,
+    cart_id SERIAL,
     product_id int  NOT NULL,
     CONSTRAINT cart_pk PRIMARY KEY (cart_id)
 );
 
 -- Table: delivery
 CREATE TABLE delivery (
-    delivery_id int  NOT NULL,
+    delivery_id SERIAL,
     price numeric(10,4)  NOT NULL,
     CONSTRAINT delivery_pk PRIMARY KEY (delivery_id)
 );
@@ -105,7 +105,7 @@ CREATE TABLE h_user (
 
 -- Table: media
 CREATE TABLE media (
-    media_id int  NOT NULL,
+    media_id SERIAL,
     product_id int  NOT NULL,
     url varchar  NOT NULL,
     type int  NOT NULL,
@@ -120,7 +120,7 @@ CREATE TABLE media (
 
 -- Table: notification
 CREATE TABLE notification (
-    notification_id int  NOT NULL,
+    notification_id SERIAL,
     user_id int  NOT NULL,
     product_id int  NOT NULL,
     title varchar(20)  NOT NULL,
@@ -136,7 +136,7 @@ CREATE TABLE notification (
 
 -- Table: order
 CREATE TABLE "order" (
-    order_id int  NOT NULL,
+    order_id SERIAL,
     user_id int  NOT NULL,
     address_id int  NOT NULL,
     delivery_id int  NOT NULL,
@@ -146,7 +146,7 @@ CREATE TABLE "order" (
 
 -- Table: payment
 CREATE TABLE payment (
-    payment_id int  NOT NULL,
+    payment_id SERIAL,
     user_id int  NOT NULL,
     product_id int  NOT NULL,
     card_id int  NOT NULL,
@@ -162,7 +162,7 @@ CREATE TABLE payment (
 
 -- Table: product
 CREATE TABLE product (
-    product_id int  NOT NULL,
+    product_id SERIAL,
     product_name varchar(100)  NOT NULL,
     details varchar(100)  NOT NULL,
     size varchar(20)  NOT NULL,
@@ -170,6 +170,7 @@ CREATE TABLE product (
     color int  NOT NULL,
     quantity int  NOT NULL,
     cost_product numeric(10,4)  NOT NULL,
+	image varchar NOT NULL,
     status int  NOT NULL,
     tx_id int  NOT NULL,
     tx_host varchar(100)  NOT NULL,
@@ -180,7 +181,7 @@ CREATE TABLE product (
 
 -- Table: product_type
 CREATE TABLE product_type (
-    product_type_id int  NOT NULL,
+    product_type_id SERIAL,
     product_id int  NOT NULL,
     type_id int  NOT NULL,
     CONSTRAINT product_type_pk PRIMARY KEY (product_type_id)
@@ -188,8 +189,8 @@ CREATE TABLE product_type (
 
 -- Table: rol
 CREATE TABLE rol (
-    rol_id int  NOT NULL,
-    name varchar(50)  NOT NULL,
+    rol_id SERIAL,
+    name_rol varchar(50)  NOT NULL,
     rol_status varchar(50)  NOT NULL,
     status int  NOT NULL,
     tx_id int  NOT NULL,
@@ -210,7 +211,7 @@ CREATE TABLE transaction (
 
 -- Table: type
 CREATE TABLE type (
-    type_id int  NOT NULL,
+    type_id SERIAL,
     type_name varchar(50)  NOT NULL,
     status int  NOT NULL,
     tx_id int  NOT NULL,
@@ -222,7 +223,7 @@ CREATE TABLE type (
 
 -- Table: user
 CREATE TABLE "user" (
-    user_id int  NOT NULL,
+    user_id SERIAL,
     address_id int  NOT NULL,
     name varchar(50)  NOT NULL,
     lastname varchar(50)  NOT NULL,
@@ -241,7 +242,7 @@ CREATE TABLE "user" (
 
 -- Table: user_rol
 CREATE TABLE user_rol (
-    user_rol_id int  NOT NULL,
+    user_rol_id SERIAL,
     user_id int  NOT NULL,
     rol_id int  NOT NULL,
     CONSTRAINT user_rol_pk PRIMARY KEY (user_rol_id)
