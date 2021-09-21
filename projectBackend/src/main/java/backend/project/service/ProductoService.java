@@ -22,4 +22,19 @@ public class ProductoService {
 	public Optional<Producto> getById(Integer id){
 		return productoRepository.findById(id);
 	}
+	
+	public void guardar (Producto producto) {
+		productoRepository.save(producto); 
+	}
+
+	public void actualizar (Producto producto) {
+		productoRepository.save(producto);
+	}
+	
+	public void eliminar (int id) {
+		productoRepository.deleteById(id);
+	}
+	
+	
+	
 }

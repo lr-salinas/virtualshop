@@ -2,6 +2,7 @@ package backend.project.entity;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,11 +16,14 @@ public class Producto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(columnDefinition = "serial")
 	private int product_id;
 	private String product_name;
 	private String details;
 	private String size;
+	private int stock;
 	private int color;
+	private int quantity;
 	private double costProduct;
 	private int status;
 	
@@ -27,7 +31,7 @@ public class Producto {
 		super();
 	}
 	
-	public Producto(int product_id, String product_name, String details, String size, int color, double costProduct, int status) {
+	public Producto(int product_id, String product_name, String details, String size,int stock, int color, int quantity, double costProduct, int status) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
@@ -94,5 +98,31 @@ public class Producto {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+		
+	@Override
+	public String toString() {
+		return "Producto [product_id=" + product_id + ", product_name=" + product_name + ", details=" + details
+				+ ", size=" + size + ", stock=" + stock + ", color=" + color + ", quantity=" + quantity
+				+ ", costProduct=" + costProduct + ", status=" + status + "]";
+	}
+
+	
+	
 	
 }

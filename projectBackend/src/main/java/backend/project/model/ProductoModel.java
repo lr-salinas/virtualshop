@@ -5,19 +5,23 @@ public class ProductoModel {
 	private String product_name;
 	private String details;
 	private String size;
+	private int stock;
 	private int color;
+	private int quantity;
 	private double costProduct;
-	private int status;
+	private Integer status;
 	
 	
-	public ProductoModel(int product_id, String product_name, String details, String size, int color,
+	public ProductoModel(int product_id, String product_name, String details, String size, int stock, int color, int quantity,
 			double costProduct, int status) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
 		this.details = details;
 		this.size = size;
+		this.stock=stock;
 		this.color = color;
+		this.quantity=quantity;
 		this.costProduct = costProduct;
 		this.status = status;
 	}
@@ -96,6 +100,26 @@ public class ProductoModel {
 	public ProductoModel() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+
+	public int getStock() {
+		return stock;
+	}
+
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	
 }
