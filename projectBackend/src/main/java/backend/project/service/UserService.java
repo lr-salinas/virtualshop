@@ -1,5 +1,6 @@
 package backend.project.service;
 
+import backend.project.entity.Producto;
 import backend.project.entity.User;
 import backend.project.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,20 @@ public class UserService {
     public Optional<User>userUpdate(Integer userid){
         return userRepository.findById(userid);
     }
+
+
+
+
+    public void guardar (User user) {
+        userRepository.save(user);
+    }
+    public void actualizar (User user) {
+        userRepository.save(user);
+    }
+
+
+
+
+
 
 }
