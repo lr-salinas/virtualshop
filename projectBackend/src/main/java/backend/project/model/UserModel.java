@@ -48,9 +48,7 @@ public class UserModel {
         this.user_id = user_id;
     }
 
-    public int getAddress_id() {
-        return address_id;
-    }
+    public int getAddress_id() {return address_id;}
 
     public void setAddress_id(int address_id) {
         this.address_id = address_id;
@@ -166,5 +164,9 @@ public class UserModel {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public UserModel(){
+        super();
     }
 }

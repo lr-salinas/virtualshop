@@ -11,39 +11,37 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> listUser(){
+    public List<User> ListUser(){
         return (List<User>) userRepository.findAll();
     }
 
-    public Optional<User>getByUserId(Integer userid){
-        return userRepository.findById(userid);
+    public Optional<User> SearchUser(int id){
+        return userRepository.findById(id);
     }
 
-
-    public List<User> userCreation(){
-        return (List<User>) userRepository.findAll();
+    public User SaveUser(User user){
+        return userRepository.save(user);
     }
 
-    public Optional<User>userUpdate(Integer userid){
-        return userRepository.findById(userid);
+    public void DeleteUser(int id){
+        userRepository.deleteById(id);
     }
 
+    public User UpdateUser(int id, User userUpdate) {
+        User userReturn = new User();
+        Optional<User> u = userRepository.findById(id);
 
-
-
-    public void guardar (User user) {
-        userRepository.save(user);
+        if(u.isPresent()){
+            userReturn = u.get();
+            userReturn = userUpdate;
+            userRepository.save(userReturn);
+        }
+        return userReturn;
     }
-    public void actualizar (User user) {
-        userRepository.save(user);
-    }
-
-
-
-
 
 
 }
