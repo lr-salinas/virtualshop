@@ -25,7 +25,7 @@ public class Producto {
 	private int color;
 	private int quantity;
 	private double costProduct;
-	private String image;
+
 	private int status;
 	
 	public Producto () {
@@ -40,7 +40,7 @@ public class Producto {
 		this.size = size;
 		this.color = color;
 		this.costProduct= costProduct;
-		this.image = image;
+
 		this.status = status;
 	}
 
@@ -101,13 +101,6 @@ public class Producto {
 		this.status = status;
 	}
 
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
 
 	public int getStock() {
 		return stock;
@@ -136,7 +129,6 @@ public class Producto {
 				", color=" + color +
 				", quantity=" + quantity +
 				", costProduct=" + costProduct +
-				", image='" + image + '\'' +
 				", status=" + status +
 				'}';
 	}

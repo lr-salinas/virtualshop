@@ -9,12 +9,11 @@ public class ProductoModel {
 	private int color;
 	private int quantity;
 	private double costProduct;
-	private String image;
 	private Integer status;
 	
 	
 	public ProductoModel(int product_id, String product_name, String details, String size, int stock, int color, int quantity,
-			double costProduct, String image, int status) {
+			double costProduct, int status) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
@@ -24,7 +23,6 @@ public class ProductoModel {
 		this.color = color;
 		this.quantity=quantity;
 		this.costProduct = costProduct;
-		this.image = image;
 		this.status = status;
 	}
 
@@ -86,14 +84,6 @@ public class ProductoModel {
 
 	public void setCostProduct(double costProduct) {
 		this.costProduct = costProduct;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
 	}
 
 	public int getStatus() {
