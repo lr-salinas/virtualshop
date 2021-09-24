@@ -6,4 +6,5 @@ import backend.project.entity.Producto;
 
 public interface ProductoRepository extends CrudRepository <Producto, Integer>{
 
+
 }

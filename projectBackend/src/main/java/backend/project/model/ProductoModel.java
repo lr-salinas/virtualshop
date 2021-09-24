@@ -10,6 +10,7 @@ public class ProductoModel {
 	private int quantity;
 	private double costProduct;
 	private Integer status;
+	private int[] imagenId;
 	
 	
 	public ProductoModel(int product_id, String product_name, String details, String size, int stock, int color, int quantity,
@@ -24,6 +25,16 @@ public class ProductoModel {
 		this.quantity=quantity;
 		this.costProduct = costProduct;
 		this.status = status;
+	}
+
+
+	public int[] getImagenId() {
+		return imagenId;
+	}
+
+
+	public void setImagenId(int[] imagenId) {
+		this.imagenId = imagenId;
 	}
 
 
