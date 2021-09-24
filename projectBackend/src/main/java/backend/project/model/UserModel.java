@@ -2,7 +2,6 @@ package backend.project.model;
 
 public class UserModel {
     private int user_id;
-    private int address_id;
     private String name;
     private String lastname;
     private String email;
@@ -10,17 +9,12 @@ public class UserModel {
     private String telephone;
     private String username;
     private String password;
-    //address
-    private String address;
-    private String number_house;
-    private String reference;
-
+    private String rol;
     private int status;
 
-    public UserModel(int user_id, int address_id,String name, String lastname, String email, String cellphone, String telephone, String username, String password, String address, String number_house, String reference, String name_rol, String rol_status, int status) {
-        super();
+    public UserModel(int user_id, String name, String lastname, String email, String cellphone, String telephone, String username, String password, String rol, int status) {
+       super();
         this.user_id = user_id;
-        this.address_id = address_id;
         this.name = name;
         this.lastname = lastname;
         this.email = email;
@@ -28,9 +22,7 @@ public class UserModel {
         this.telephone = telephone;
         this.username = username;
         this.password = password;
-        this.address = address;
-        this.number_house = number_house;
-        this.reference = reference;
+        this.rol = rol;
         this.status = status;
     }
 
@@ -40,12 +32,6 @@ public class UserModel {
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;
-    }
-
-    public int getAddress_id() {return address_id;}
-
-    public void setAddress_id(int address_id) {
-        this.address_id = address_id;
     }
 
     public String getName() {
@@ -104,28 +90,12 @@ public class UserModel {
         this.password = password;
     }
 
-    public String getAddress() {
-        return address;
+    public String getRol() {
+        return rol;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getNumber_house() {
-        return number_house;
-    }
-
-    public void setNumber_house(String number_house) {
-        this.number_house = number_house;
-    }
-
-    public String getReference() {
-        return reference;
-    }
-
-    public void setReference(String reference) {
-        this.reference = reference;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     public int getStatus() {

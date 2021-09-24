@@ -1,14 +1,10 @@
 package backend.project.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user" ,schema = "public")
 
 public class User {
 
@@ -16,7 +12,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "serial")
     private int user_id;
-    private int address_id;
     private String name;
     private String lastname;
     private String email;
@@ -24,16 +19,16 @@ public class User {
     private String telephone;
     private String username;
     private String password;
+    private String rol;
     private int status;
 
     public User(){
         super();
     }
 
-    public User(int user_id, int address_id, String name, String lastname, String email, String cellphone, String telephone, String username, String password, int status) {
+    public User(int user_id, String name, String lastname, String email, String cellphone, String telephone, String username, String password, String rol, int status) {
         super();
         this.user_id = user_id;
-        this.address_id = address_id;
         this.name = name;
         this.lastname = lastname;
         this.email = email;
@@ -41,6 +36,7 @@ public class User {
         this.telephone = telephone;
         this.username = username;
         this.password = password;
+        this.rol = rol;
         this.status = status;
     }
 
@@ -50,14 +46,6 @@ public class User {
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;
-    }
-
-    public int getAddress_id() {
-        return address_id;
-    }
-
-    public void setAddress_id(int address_id) {
-        this.address_id = address_id;
     }
 
     public String getName() {
@@ -116,6 +104,14 @@ public class User {
         this.password = password;
     }
 
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
     public int getStatus() {
         return status;
     }
@@ -128,7 +124,6 @@ public class User {
     public String toString() {
         return "User{" +
                 "user_id=" + user_id +
-                ", address_id=" + address_id +
                 ", name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
@@ -136,6 +131,7 @@ public class User {
                 ", telephone='" + telephone + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", rol='" + rol + '\'' +
                 ", status=" + status +
                 '}';
     }
