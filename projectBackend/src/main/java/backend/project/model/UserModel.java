@@ -3,7 +3,6 @@ package backend.project.model;
 public class UserModel {
     private int user_id;
     private int address_id;
-    private int rol_id;
     private String name;
     private String lastname;
     private String email;
@@ -15,16 +14,13 @@ public class UserModel {
     private String address;
     private String number_house;
     private String reference;
-    //rol
-    private String name_rol;
-    private String rol_status;
+
     private int status;
 
-    public UserModel(int user_id, int address_id, int rol_id, String name, String lastname, String email, String cellphone, String telephone, String username, String password, String address, String number_house, String reference, String name_rol, String rol_status, int status) {
+    public UserModel(int user_id, int address_id,String name, String lastname, String email, String cellphone, String telephone, String username, String password, String address, String number_house, String reference, String name_rol, String rol_status, int status) {
         super();
         this.user_id = user_id;
         this.address_id = address_id;
-        this.rol_id = rol_id;
         this.name = name;
         this.lastname = lastname;
         this.email = email;
@@ -35,8 +31,6 @@ public class UserModel {
         this.address = address;
         this.number_house = number_house;
         this.reference = reference;
-        this.name_rol = name_rol;
-        this.rol_status = rol_status;
         this.status = status;
     }
 
@@ -52,14 +46,6 @@ public class UserModel {
 
     public void setAddress_id(int address_id) {
         this.address_id = address_id;
-    }
-
-    public int getRol_id() {
-        return rol_id;
-    }
-
-    public void setRol_id(int rol_id) {
-        this.rol_id = rol_id;
     }
 
     public String getName() {
@@ -140,22 +126,6 @@ public class UserModel {
 
     public void setReference(String reference) {
         this.reference = reference;
-    }
-
-    public String getName_rol() {
-        return name_rol;
-    }
-
-    public void setName_rol(String name_rol) {
-        this.name_rol = name_rol;
-    }
-
-    public String getRol_status() {
-        return rol_status;
-    }
-
-    public void setRol_status(String rol_status) {
-        this.rol_status = rol_status;
     }
 
     public int getStatus() {

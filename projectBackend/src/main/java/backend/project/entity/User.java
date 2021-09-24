@@ -1,5 +1,11 @@
 package backend.project.entity;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
@@ -7,8 +13,8 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @Column(columnDefinition = "serial")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private int user_id;
     private int address_id;
     private String name;
