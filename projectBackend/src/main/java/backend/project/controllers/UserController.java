@@ -33,11 +33,23 @@ public class UserController {
     }
 
     //	AGREGAR UN NUEVO USUARIO
-    @PostMapping
+  /*  @PostMapping
     public ResponseEntity<User> SaveUser(@RequestBody User entityUser){
         return new ResponseEntity<User>(userService.SaveUser(entityUser),
                 HttpStatus.CREATED);
-    }
+    }*/
+
+    @PostMapping
+	public User saveUser(@RequestBody User user) throws ServerException {
+		System.out.println(user);
+		userService.saveUser(user);
+		if (user == null) {
+	        throw new ServerException(null);
+	    }
+		else {
+	        return user;
+	    }
+	}
 
     //Borrar un usuario
     @DeleteMapping("/{id}")
@@ -46,15 +58,15 @@ public class UserController {
     }
 
     //	ACTUALIZAR UN USUARIO
-  /*  @PutMapping
-    public void actualizarUser(@RequestBody User user) {
-        userService.actualizar(user);
-    }*/
-
-   @PutMapping("/{id}")
+  /* @PutMapping("/{id}")
     public User UpdateUser(@RequestBody User entityUser,@PathVariable int id){
        return userService.UpdateUser(id,entityUser);
-   }
+   }*/
+
+   @PutMapping
+	public void updateUser(@RequestBody User user) {
+		userService.updateUser(user);
+	}
 
 
 
