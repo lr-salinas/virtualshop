@@ -8,10 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 @Entity
-@Table(name="product")
-
+@Table (name = "product")
 public class Producto {
 	
 	@Id
@@ -24,26 +22,31 @@ public class Producto {
 	private int stock;
 	private int color;
 	private int quantity;
+//	private boolean available;
 	private double costProduct;
-
-	private int status;
+//	private String image;
+	private boolean status;
+	private int categoria_categoria_id;
 	
 	public Producto () {
 		super();
 	}
-	
-	public Producto(int product_id, String product_name, String details, String size,int stock, int color, int quantity, double costProduct,String image, int status) {
+
+	public Producto(int product_id, String product_name, String details, String size, int stock, int color, int quantity, double costProduct, boolean status, int categoria_categoria_id) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
 		this.details = details;
 		this.size = size;
+		this.stock = stock;
 		this.color = color;
-		this.costProduct= costProduct;
-
+		this.quantity = quantity;
+//		this.available = available;
+		this.costProduct = costProduct;
+//		this.image = image;
 		this.status = status;
+		this.categoria_categoria_id = categoria_categoria_id;
 	}
-
 
 	public int getProduct_id() {
 		return product_id;
@@ -77,37 +80,20 @@ public class Producto {
 		this.size = size;
 	}
 
-	public int getColor() {
-		return color;
-	}
-
-	public void setColor(int color) {
-		this.color = color;
-	}
-
-	public double getCostProduct() {
-		return costProduct;
-	}
-
-	public void setCostProduct(double costProduct) {
-		this.costProduct = costProduct;
-	}
-
-	public int getStatus() {
-		return status;
-	}
-
-	public void setStatus(int status) {
-		this.status = status;
-	}
-
-
 	public int getStock() {
 		return stock;
 	}
 
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+
+	public int getColor() {
+		return color;
+	}
+
+	public void setColor(int color) {
+		this.color = color;
 	}
 
 	public int getQuantity() {
@@ -118,18 +104,51 @@ public class Producto {
 		this.quantity = quantity;
 	}
 
+//	public boolean isAvailable() {
+//		return available;
+//	}
+//
+//	public void setAvailable(boolean available) {
+//		this.available = available;
+//	}
+
+	public int getCategoria_categoria_id() {
+		return categoria_categoria_id;
+	}
+
+	public void setCategoria_categoria_id(int categoria_categoria_id) {
+		this.categoria_categoria_id = categoria_categoria_id;
+	}
+
+	public double getCostProduct() {
+		return costProduct;
+	}
+
+	public void setCostProduct(double costProduct) {
+		this.costProduct = costProduct;
+	}
+
+//	public String getImage() {
+//		return image;
+//	}
+//
+//	public void setImage(String image) {
+//		this.image = image;
+//	}
+
+	public boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
-		return "Producto{" +
-				"product_id=" + product_id +
-				", product_name='" + product_name + '\'' +
-				", details='" + details + '\'' +
-				", size='" + size + '\'' +
-				", stock=" + stock +
-				", color=" + color +
-				", quantity=" + quantity +
-				", costProduct=" + costProduct +
-				", status=" + status +
-				'}';
+		return "Producto [product_id=" + product_id + ", product_name=" + product_name + ", details=" + details
+				+ ", size=" + size + ", stock=" + stock + ", color=" + color + ", quantity=" + quantity
+				+ ", costProduct=" + costProduct + ", status=" + status + ", categoria_categoria_id="
+				+ categoria_categoria_id + "]";
 	}
 }
