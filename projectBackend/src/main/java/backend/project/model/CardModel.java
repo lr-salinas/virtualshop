@@ -1,5 +1,7 @@
 package backend.project.model;
 
+import java.sql.Date;
+
 public class CardModel {
     private int card_id;
     private int user_id;
@@ -8,11 +10,10 @@ public class CardModel {
     private int expiration_year;
     private int expiration_month;
     private int cvc;
-    private int creation_date;
+    private Date creation_date;
     private int status;
 
-    public CardModel(int card_id, int user_id, String card_name, int card_number, int expiration_year, int expiration_month, int cvc, int creation_date, int status) {
-        super();
+    public CardModel(int card_id, int user_id, String card_name, int card_number, int expiration_year, int expiration_month, int cvc, Date creation_date, int status) {
         this.card_id = card_id;
         this.user_id = user_id;
         this.card_name = card_name;
@@ -80,11 +81,11 @@ public class CardModel {
         this.cvc = cvc;
     }
 
-    public int getCreation_date() {
+    public Date getCreation_date() {
         return creation_date;
     }
 
-    public void setCreation_date(int creation_date) {
+    public void setCreation_date(Date creation_date) {
         this.creation_date = creation_date;
     }
 

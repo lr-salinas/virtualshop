@@ -1,6 +1,7 @@
 package backend.project.entity;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "card")
@@ -16,7 +17,7 @@ public class Card {
     private int expiration_year;
     private int expiration_month;
     private int cvc;
-    private int creation_date;
+    private Date creation_date;
     private int status;
 
     public Card(){
@@ -79,11 +80,11 @@ public class Card {
         this.cvc = cvc;
     }
 
-    public int getCreation_date() {
+    public Date getCreation_date() {
         return creation_date;
     }
 
-    public void setCreation_date(int creation_date) {
+    public void setCreation_date(Date creation_date) {
         this.creation_date = creation_date;
     }
 
