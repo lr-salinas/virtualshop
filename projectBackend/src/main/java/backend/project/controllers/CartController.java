@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.rmi.ServerException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -23,6 +24,14 @@ public class CartController {
 
         return cartService.SearchProd();
     }
+
+    //	OBTENER PRODUCTO POR ID
+    @GetMapping("/{id}")
+    public Optional<Cart> getById (@PathVariable Integer id) {
+
+        return (Optional<Cart>) cartService.getById(id);
+    }
+
 
     //	Agregar producto al carrito
     @PostMapping

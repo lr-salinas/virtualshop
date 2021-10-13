@@ -1,11 +1,13 @@
 package backend.project.service;
 
 import backend.project.entity.Cart;
+import backend.project.entity.Producto;
 import backend.project.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CartService {
@@ -16,6 +18,11 @@ public class CartService {
     public List<Cart> SearchProd (){
         return (List<Cart>) cartRepository.findAll();
     }
+
+    public Optional<Cart> getById(Integer id){
+        return cartRepository.findById(id);
+    }
+
 
     public void save(Cart cart){
         cartRepository.save(cart);
