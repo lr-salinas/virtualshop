@@ -32,12 +32,6 @@ public class UserController {
         return userService.SearchUser(id);
     }
 
-    //	AGREGAR UN NUEVO USUARIO
-  /*  @PostMapping
-    public ResponseEntity<User> SaveUser(@RequestBody User entityUser){
-        return new ResponseEntity<User>(userService.SaveUser(entityUser),
-                HttpStatus.CREATED);
-    }*/
 
     @PostMapping
 	public User saveUser(@RequestBody User user) throws ServerException {
