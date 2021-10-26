@@ -11,9 +11,9 @@ public class UserModel {
     private String password;
     private String rol;
     private int status;
+    private  int rol_id;
 
-    public UserModel(int user_id, String name, String lastname, String email, String cellphone, String telephone, String username, String password, String rol, int status) {
-       super();
+    public UserModel(int user_id, String name, String lastname, String email, String cellphone, String telephone, String username, String password, String rol, int status, int rol_id) {
         this.user_id = user_id;
         this.name = name;
         this.lastname = lastname;
@@ -24,6 +24,7 @@ public class UserModel {
         this.password = password;
         this.rol = rol;
         this.status = status;
+        this.rol_id = rol_id;
     }
 
     public int getUser_id() {
@@ -104,6 +105,14 @@ public class UserModel {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public int getRol_id() {
+        return rol_id;
+    }
+
+    public void setRol_id(int rol_id) {
+        this.rol_id = rol_id;
     }
 
     public UserModel(){
