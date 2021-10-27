@@ -40,6 +40,7 @@ public class RolController {
 
 
 
+
     //	OBTENER ROL POR ID
     @GetMapping("/{id}")
     public Optional<Rol> getById (@PathVariable Integer id) {

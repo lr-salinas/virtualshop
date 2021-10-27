@@ -8,3 +8,5 @@ public interface RolRespository extends CrudRepository<Rol, Integer> {
 
 
 }
+
+

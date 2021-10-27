@@ -12,6 +12,7 @@ public class UserRol {
     private int user_id;
     private int rol_id;
 
+
     public UserRol(){
         super();
     }
