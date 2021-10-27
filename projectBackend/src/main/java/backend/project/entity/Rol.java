@@ -10,17 +10,15 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int rol_id;
     private String name_rol;
-    private String rol_status;
     private int status;
 
     public Rol(){
         super();
     }
 
-    public Rol(int rol_id, String name_rol, String rol_status, int status) {
+    public Rol(int rol_id, String name_rol, int status) {
         this.rol_id = rol_id;
         this.name_rol = name_rol;
-        this.rol_status = rol_status;
         this.status = status;
     }
 
@@ -38,14 +36,6 @@ public class Rol {
 
     public void setName_rol(String name_rol) {
         this.name_rol = name_rol;
-    }
-
-    public String getRol_status() {
-        return rol_status;
-    }
-
-    public void setRol_status(String rol_status) {
-        this.rol_status = rol_status;
     }
 
     public int getStatus() {

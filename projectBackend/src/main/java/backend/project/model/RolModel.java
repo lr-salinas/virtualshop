@@ -37,6 +37,7 @@ public class RolModel {
     }
 
     public RolModel() {
+
         super();
         // TODO Auto-generated constructor stub
     }
