@@ -34,6 +34,7 @@ public class UserController {
 
 
     @PostMapping
+
 	public User saveUser(@RequestBody User user) throws ServerException {
 		System.out.println(user);
 		userService.saveUser(user);

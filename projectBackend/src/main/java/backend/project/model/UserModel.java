@@ -27,6 +27,8 @@ public class UserModel {
         this.rol_id = rol_id;
     }
 
+
+
     public int getUser_id() {
         return user_id;
     }

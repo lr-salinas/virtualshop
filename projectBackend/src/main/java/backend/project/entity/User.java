@@ -12,6 +12,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "serial")
     private int user_id;
+    private int rol_id;
     private String name;
     private String lastname;
     private String email;
@@ -26,9 +27,9 @@ public class User {
         super();
     }
 
-    public User(int user_id, String name, String lastname, String email, String cellphone, String telephone, String username, String password, String rol, int status) {
-        super();
+    public User(int user_id, int rol_id, String name, String lastname, String email, String cellphone, String telephone, String username, String password, String rol, int status) {
         this.user_id = user_id;
+        this.rol_id = rol_id;
         this.name = name;
         this.lastname = lastname;
         this.email = email;
@@ -46,6 +47,14 @@ public class User {
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;
+    }
+
+    public int getRol_id() {
+        return rol_id;
+    }
+
+    public void setRol_id(int rol_id) {
+        this.rol_id = rol_id;
     }
 
     public String getName() {
@@ -124,6 +133,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "user_id=" + user_id +
+                ", rol_id=" + rol_id +
                 ", name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
