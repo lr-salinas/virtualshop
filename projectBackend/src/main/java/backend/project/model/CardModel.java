@@ -14,6 +14,7 @@ public class CardModel {
     private int status;
 
     public CardModel(int card_id, int user_id, String card_name, int card_number, int expiration_year, int expiration_month, int cvc, Date creation_date, int status) {
+        super();
         this.card_id = card_id;
         this.user_id = user_id;
         this.card_name = card_name;
