@@ -9,7 +9,7 @@ public class RolModel {
     public RolModel(int rol_id, String nombre, int status) {
         this.rol_id = rol_id;
         this.nombre = nombre;
-        this.status = status;
+
     }
 
     public int getRol_id() {
@@ -28,13 +28,7 @@ public class RolModel {
         this.nombre = nombre;
     }
 
-    public int isStatus() {
-        return status;
-    }
 
-    public void setStatus(int status) {
-        this.status = status;
-    }
 
     public RolModel() {
 
