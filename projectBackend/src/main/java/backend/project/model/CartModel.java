@@ -3,11 +3,13 @@ package backend.project.model;
 public class CartModel {
     private int cart_id;
     private int product_id;
+    private double costo_total;
 
-    public CartModel(int cart_id, int product_id) {
+    public CartModel(int cart_id, int product_id, double costo_total) {
         super();
         this.cart_id = cart_id;
         this.product_id = product_id;
+        this.costo_total = costo_total;
     }
 
     public int getCart_id() {
@@ -24,6 +26,14 @@ public class CartModel {
 
     public void setProduct_id(int product_id) {
         this.product_id = product_id;
+    }
+
+    public double getCosto_total() {
+        return costo_total;
+    }
+
+    public void setCosto_total(double costo_total) {
+        this.costo_total = costo_total;
     }
 
     public CartModel(){

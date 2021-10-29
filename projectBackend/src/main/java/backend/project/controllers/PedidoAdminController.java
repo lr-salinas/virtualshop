@@ -35,6 +35,21 @@ public class PedidoAdminController {
         return (Optional<PedidoAdmin>) pedidoAdminService.getById(id);
     }
 
+    //	AGREGAR UN NUEVO PRODUCTO
+    @PostMapping
+    public PedidoAdmin guardarPedido(@RequestBody PedidoAdmin pedidoAdmin) throws ServerException {
+        System.out.println(pedidoAdmin);
+        pedidoAdminService.guardar(pedidoAdmin);
+        if (pedidoAdmin== null) {
+            throw new ServerException(null);
+        }
+        else {
+            return pedidoAdmin;
+        }
+    }
+
+
+
     //	ACTUALIZAR UN PEDIDO EXISTENTE
     @PutMapping
     public void actualizarPedidoAdmin(@RequestBody PedidoAdmin pedidoAdmin) {

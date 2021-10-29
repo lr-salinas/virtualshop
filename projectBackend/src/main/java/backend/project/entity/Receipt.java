@@ -14,7 +14,7 @@ public class Receipt {
     private int product_id;
     private int user_id;
     private int card_id;
-    private int address_id;
+    private int cart_id;
     private Date date;
 
     public int getReceipt_id() {
@@ -49,12 +49,12 @@ public class Receipt {
         this.card_id = card_id;
     }
 
-    public int getAddress_id() {
-        return address_id;
+    public int getCart_id() {
+        return cart_id;
     }
 
-    public void setAddress_id(int address_id) {
-        this.address_id = address_id;
+    public void setCart_id(int cart_id) {
+        this.cart_id = cart_id;
     }
 
     public Date getDate() {
@@ -72,7 +72,7 @@ public class Receipt {
                 ", product_id=" + product_id +
                 ", user_id=" + user_id +
                 ", card_id=" + card_id +
-                ", address_id=" + address_id +
+                ", cart_id=" + cart_id +
                 ", date=" + date +
                 '}';
     }
