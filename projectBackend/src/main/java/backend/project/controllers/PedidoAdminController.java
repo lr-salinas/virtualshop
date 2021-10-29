@@ -2,6 +2,7 @@ package backend.project.controllers;
 
 import backend.project.entity.Categoria;
 import backend.project.entity.PedidoAdmin;
+import backend.project.entity.Producto;
 import backend.project.service.CategoriaService;
 import backend.project.service.PedidoAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,12 @@ public class PedidoAdminController {
         return pedidoAdminService.BuscarTodos();
     }
 
+    //	OBTENER PRODUCTO POR ID
+    @GetMapping("/{id}")
+    public Optional<PedidoAdmin> getById (@PathVariable Integer id) {
+
+        return (Optional<PedidoAdmin>) pedidoAdminService.getById(id);
+    }
 
     //	ACTUALIZAR UN PEDIDO EXISTENTE
     @PutMapping

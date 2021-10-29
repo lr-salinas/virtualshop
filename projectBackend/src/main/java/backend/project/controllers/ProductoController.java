@@ -1,10 +1,17 @@
 package backend.project.controllers;
 
+import java.awt.print.Book;
 import java.rmi.ServerException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -33,14 +40,14 @@ public class ProductoController{
 	
 	
 //	OBTENER TODOS LOS PRODUCTOS
+
 	@GetMapping
 	public List<Producto> ListarTodos() {
 		
 		return productoService.BuscarTodos();
 	}
 
-	
-//	OBTENER PRODUCTO POR ID
+	//	OBTENER PRODUCTO POR ID
 	@GetMapping("/{id}")
 	public Optional<Producto> getById (@PathVariable Integer id) {
 		
