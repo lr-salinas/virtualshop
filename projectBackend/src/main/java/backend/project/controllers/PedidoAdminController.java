@@ -2,6 +2,7 @@ package backend.project.controllers;
 
 import backend.project.entity.Categoria;
 import backend.project.entity.PedidoAdmin;
+import backend.project.entity.Producto;
 import backend.project.service.CategoriaService;
 import backend.project.service.PedidoAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,21 @@ public class PedidoAdminController {
 
         return pedidoAdminService.BuscarTodos();
     }
+
+
+    //	AGREGAR UN NUEVO PRODUCTO
+    @PostMapping
+    public PedidoAdmin guardarPedido(@RequestBody PedidoAdmin pedidoAdmin) throws ServerException {
+        System.out.println(pedidoAdmin);
+        pedidoAdminService.guardar(pedidoAdmin);
+        if (pedidoAdmin== null) {
+            throw new ServerException(null);
+        }
+        else {
+            return pedidoAdmin;
+        }
+    }
+
 
 
     //	ACTUALIZAR UN PEDIDO EXISTENTE

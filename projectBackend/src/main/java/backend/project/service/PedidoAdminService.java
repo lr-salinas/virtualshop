@@ -20,7 +20,7 @@ public class PedidoAdminService {
         return pedidoAdminRepository.findById(id);
     }
 
-    public void guardar (PedidoAdmin pedidoAdmin) {
+    public void guardar(PedidoAdmin pedidoAdmin) {
         pedidoAdminRepository.save(pedidoAdmin);
     }
 
