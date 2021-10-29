@@ -8,15 +8,15 @@ public class ReceiptModel {
     private int product_id;
     private int user_id;
     private int card_id;
-    private int address_id;
+    private int cart_id;
     private Date date;
 
-    public ReceiptModel(int receipt_id, int product_id, int user_id, int card_id, int address_id, Date date) {
+    public ReceiptModel(int receipt_id, int product_id, int user_id, int cart_id, int address_id, Date date) {
         this.receipt_id = receipt_id;
         this.product_id = product_id;
         this.user_id = user_id;
         this.card_id = card_id;
-        this.address_id = address_id;
+        this.cart_id = address_id;
         this.date = date;
     }
 
@@ -53,11 +53,11 @@ public class ReceiptModel {
     }
 
     public int getAddress_id() {
-        return address_id;
+        return cart_id;
     }
 
     public void setAddress_id(int address_id) {
-        this.address_id = address_id;
+        this.cart_id = address_id;
     }
 
     public Date getDate() {
