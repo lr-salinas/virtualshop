@@ -1,8 +1,16 @@
 package backend.project.controllers;
 
 import backend.project.entity.Cart;
+import backend.project.entity.Categoria;
 import backend.project.entity.Producto;
+import backend.project.entity.User;
 import backend.project.service.CartService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +26,15 @@ public class CartController {
     @Autowired
     private CartService cartService;
 
+    @Operation(summary = "Get cart list")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the cart",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Cart.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Cart not found",
+                    content = @Content) })
     //	Obtener lista de productos
     @GetMapping
     public List<Cart> ListarProd() {
@@ -25,14 +42,34 @@ public class CartController {
         return cartService.SearchProd();
     }
 
+    @Operation(summary = "Get a cart by its id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the cart",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Cart.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Cart not found",
+                    content = @Content) })
+
     //	OBTENER PRODUCTO POR ID
     @GetMapping("/{id}")
-    public Optional<Cart> getById (@PathVariable Integer id) {
+    public Optional<Cart> getById (@Parameter(description = "id of cart to be searched")
+            @PathVariable Integer id) {
 
         return (Optional<Cart>) cartService.getById(id);
     }
 
 
+    @Operation(summary = "Add product to cart")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the cart",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Cart.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Cart not found",
+                    content = @Content) })
     //	Agregar producto al carrito
     @PostMapping
     public Cart saveProd(@RequestBody Cart cart) throws ServerException {
@@ -46,9 +83,19 @@ public class CartController {
         }
     }
 
+    @Operation(summary = "Delete product to cart")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the cart",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Cart.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Cart not found",
+                    content = @Content) })
     //	Borrar producto del carrito
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") int id) {
+    public void delete(@Parameter(description = "id of cart to be searched")
+            @PathVariable("id") int id) {
 
         cartService.delete(id);
     }

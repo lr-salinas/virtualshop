@@ -5,6 +5,11 @@ import backend.project.entity.PedidoAdmin;
 import backend.project.entity.Producto;
 import backend.project.service.CategoriaService;
 import backend.project.service.PedidoAdminService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +26,15 @@ public class PedidoAdminController {
     private PedidoAdminService pedidoAdminService;
 
 
+    @Operation(summary = "Get order list")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the order",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = PedidoAdmin.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Order not found",
+                    content = @Content) })
     //	OBTENER TODOS LOS PEDIDOS
     @GetMapping
     public List<PedidoAdmin> ListarTodos() {
@@ -28,33 +42,31 @@ public class PedidoAdminController {
         return pedidoAdminService.BuscarTodos();
     }
 
-    //	OBTENER PRODUCTO POR ID
-    @GetMapping("/{id}")
-    public Optional<PedidoAdmin> getById (@PathVariable Integer id) {
 
-        return (Optional<PedidoAdmin>) pedidoAdminService.getById(id);
-    }
-
-    //	AGREGAR UN NUEVO PRODUCTO
-    @PostMapping
-    public PedidoAdmin guardarPedido(@RequestBody PedidoAdmin pedidoAdmin) throws ServerException {
-        System.out.println(pedidoAdmin);
-        pedidoAdminService.guardar(pedidoAdmin);
-        if (pedidoAdmin== null) {
-            throw new ServerException(null);
-        }
-        else {
-            return pedidoAdmin;
-        }
-    }
-
-
-
+    @Operation(summary = "Update order")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the order",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = PedidoAdmin.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Order not found",
+                    content = @Content) })
     //	ACTUALIZAR UN PEDIDO EXISTENTE
     @PutMapping
     public void actualizarPedidoAdmin(@RequestBody PedidoAdmin pedidoAdmin) {
         pedidoAdminService.actualizar(pedidoAdmin);
     }
+
+    @Operation(summary = "Delete order")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the order",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = PedidoAdmin.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Order not found",
+                    content = @Content) })
     //	BORRAR UN PEDIDO
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") int id) {
