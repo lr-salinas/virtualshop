@@ -11,7 +11,7 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "serial")
     private int card_id;
-    private int user_id;
+//    private int user_id;
     private String card_name;
     private int card_number;
     private int expiration_year;
@@ -32,13 +32,13 @@ public class Card {
         this.card_id = card_id;
     }
 
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
+//    public int getUser_id() {
+//        return user_id;
+//    }
+//
+//    public void setUser_id(int user_id) {
+//        this.user_id = user_id;
+//    }
 
     public String getCard_name() {
         return card_name;
@@ -100,7 +100,7 @@ public class Card {
     public String toString() {
         return "Card{" +
                 "card_id=" + card_id +
-                ", user_id=" + user_id +
+//                ", user_id=" + user_id +
                 ", card_name='" + card_name + '\'' +
                 ", card_number=" + card_number +
                 ", expiration_year=" + expiration_year +

@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class CardModel {
     private int card_id;
-    private int user_id;
+//    private int user_id;
     private String card_name;
     private int card_number;
     private int expiration_year;
@@ -13,10 +13,10 @@ public class CardModel {
     private Date creation_date;
     private int status;
 
-    public CardModel(int card_id, int user_id, String card_name, int card_number, int expiration_year, int expiration_month, int cvc, Date creation_date, int status) {
+    public CardModel(int card_id, String card_name, int card_number, int expiration_year, int expiration_month, int cvc, Date creation_date, int status) {
         super();
         this.card_id = card_id;
-        this.user_id = user_id;
+//        this.user_id = user_id;
         this.card_name = card_name;
         this.card_number = card_number;
         this.expiration_year = expiration_year;
@@ -33,14 +33,14 @@ public class CardModel {
     public void setCard_id(int card_id) {
         this.card_id = card_id;
     }
-
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
+//
+//    public int getUser_id() {
+//        return user_id;
+//    }
+//
+//    public void setUser_id(int user_id) {
+//        this.user_id = user_id;
+//    }
 
     public String getCard_name() {
         return card_name;
