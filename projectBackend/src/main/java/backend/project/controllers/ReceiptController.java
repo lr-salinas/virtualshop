@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import backend.project.dto.ReceiptDto;
 import backend.project.entity.Rol;
 import backend.project.entity.User;
 import io.swagger.v3.oas.annotations.Operation;
@@ -50,12 +51,17 @@ public class ReceiptController{
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "Receipt not found",
                     content = @Content) })
-    @GetMapping
+  /*  @GetMapping
     public List<Receipt> ListarTodos() {
 
         return receiptService.BuscarTodos();
     }
+*/
 
+    @GetMapping
+    public ResponseEntity<List<ReceiptDto>> getDeptEmployeesInnerJoin() {
+        return new ResponseEntity<List<ReceiptDto>>(receiptService.ObtenerRecibos(), HttpStatus.OK);
+    }
     @Operation(summary = "Get a receipt by its id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the rol",

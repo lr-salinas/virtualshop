@@ -3,6 +3,7 @@ package backend.project.service;
 import java.util.List;
 import java.util.Optional;
 
+import backend.project.dto.ReceiptDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,13 @@ public class ReceiptService {
 
     public void guardar(Receipt receipt) {
         receiptRepository.save(receipt);
+    }
+
+    public List<ReceiptDto>ObtenerRecibos()
+    {
+        List<ReceiptDto> list= receiptRepository.ObtenerRecibos();
+        list.forEach(l -> System.out.println(l));
+        return list;
+
     }
 }
