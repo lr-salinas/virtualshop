@@ -8,13 +8,14 @@ public class ProductoModel {
 	private int stock;
 	private int color;
 	private int quantity;
-//	private boolean available;
+	//	private boolean available;
 	private double costProduct;
-//	private String image;
+	//	private String image;
 	private boolean status;
 	private int categoria_categoria_id;
+	private String image;
 
-	public ProductoModel(int product_id, String product_name, String details, String size, int stock, int color, int quantity, double costProduct, boolean status, int categoria_categoria_id) {
+	public ProductoModel(int product_id, String product_name, String details, String size, int stock, int color, int quantity, double costProduct, boolean status, int categoria_categoria_id, String image) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
@@ -28,6 +29,7 @@ public class ProductoModel {
 //		this.image = image;
 		this.status = status;
 		this.categoria_categoria_id=categoria_categoria_id;
+		this.image=image;
 	}
 
 	public int getProduct_id() {
@@ -94,6 +96,13 @@ public class ProductoModel {
 		this.quantity = quantity;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 //	public boolean isAvailable() {
 //		return available;
 //	}

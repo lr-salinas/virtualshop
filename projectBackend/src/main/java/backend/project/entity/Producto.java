@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table (name = "product")
 public class Producto {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(columnDefinition = "serial")
@@ -22,17 +22,18 @@ public class Producto {
 	private int stock;
 	private int color;
 	private int quantity;
-//	private boolean available;
+	//	private boolean available;
 	private double costProduct;
-//	private String image;
+	//	private String image;
 	private boolean status;
 	private int categoria_categoria_id;
-	
+	private String image;
+
 	public Producto () {
 		super();
 	}
 
-	public Producto(int product_id, String product_name, String details, String size, int stock, int color, int quantity, double costProduct, boolean status, int categoria_categoria_id) {
+	public Producto(int product_id, String product_name, String details, String size, int stock, int color, int quantity, double costProduct, boolean status, int categoria_categoria_id, String image) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
@@ -46,6 +47,7 @@ public class Producto {
 //		this.image = image;
 		this.status = status;
 		this.categoria_categoria_id = categoria_categoria_id;
+		this.image = image;
 	}
 
 	public int getProduct_id() {
@@ -142,6 +144,14 @@ public class Producto {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	@Override
