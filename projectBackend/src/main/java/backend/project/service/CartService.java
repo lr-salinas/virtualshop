@@ -1,7 +1,7 @@
 package backend.project.service;
 
+import backend.project.dto.CartDto;
 import backend.project.entity.Cart;
-import backend.project.entity.Producto;
 import backend.project.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,4 +31,14 @@ public class CartService {
     public void delete (int id){
         cartRepository.deleteById(id);
     }
+
+    public List<CartDto> ObtenerCompra()
+    {
+        List<CartDto> list= cartRepository.ObtenerCompra();
+        list.forEach(l -> System.out.println(l));
+        return list;
+
+    }
+
+
 }

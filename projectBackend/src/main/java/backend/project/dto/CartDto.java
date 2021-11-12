@@ -5,12 +5,14 @@ public class CartDto {
     private String Lastname;
     private String product_name;
     private Double cost_product;
+    private String image;
 
-    public CartDto(String name, String lastname, String product_name, Double cost_product) {
+    public CartDto(String name, String lastname, String product_name, Double cost_product, String image) {
         this.name = name;
         Lastname = lastname;
         this.product_name = product_name;
         this.cost_product = cost_product;
+        this.image = image;
     }
 
     public String getName() {
@@ -45,6 +47,14 @@ public class CartDto {
         this.cost_product = cost_product;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
         return "CartDto{" +
@@ -52,6 +62,7 @@ public class CartDto {
                 ", Lastname='" + Lastname + '\'' +
                 ", product_name='" + product_name + '\'' +
                 ", cost_product=" + cost_product +
+                ", image='" + image + '\'' +
                 '}';
     }
 }

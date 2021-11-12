@@ -1,5 +1,6 @@
 package backend.project.controllers;
 
+import backend.project.dto.CartDto;
 import backend.project.entity.Cart;
 import backend.project.entity.Categoria;
 import backend.project.entity.Producto;
@@ -12,6 +13,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.rmi.ServerException;
@@ -36,11 +39,30 @@ public class CartController {
             @ApiResponse(responseCode = "404", description = "Cart not found",
                     content = @Content) })
     //	Obtener lista de productos
-    @GetMapping
+
+
+   /*  @GetMapping
     public List<Cart> ListarProd() {
 
         return cartService.SearchProd();
     }
+
+
+    @RequestMapping("/cartAdmin")
+    public ResponseEntity<List<CartDto>> getDeptEmployeesInnerJoin() {
+        return new ResponseEntity<List<CartDto>>(cartService.ObtenerCompra(), HttpStatus.OK);
+    }
+
+*/
+    @GetMapping
+    public ResponseEntity<List<CartDto>> getDeptEmployeesInnerJoin() {
+        return new ResponseEntity<List<CartDto>>(cartService.ObtenerCompra(), HttpStatus.OK);
+    }
+
+
+
+
+
 
     @Operation(summary = "Get a cart by its id")
     @ApiResponses(value = {
@@ -52,6 +74,7 @@ public class CartController {
             @ApiResponse(responseCode = "404", description = "Cart not found",
                     content = @Content) })
 
+
     //	OBTENER PRODUCTO POR ID
     @GetMapping("/{id}")
     public Optional<Cart> getById (@Parameter(description = "id of cart to be searched")
@@ -59,6 +82,12 @@ public class CartController {
 
         return (Optional<Cart>) cartService.getById(id);
     }
+
+
+
+
+
+
 
 
     @Operation(summary = "Add product to cart")
@@ -82,6 +111,14 @@ public class CartController {
             return cart;
         }
     }
+
+
+
+
+
+
+
+
 
     @Operation(summary = "Delete product to cart")
     @ApiResponses(value = {
