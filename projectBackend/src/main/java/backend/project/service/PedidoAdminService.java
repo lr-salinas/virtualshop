@@ -1,5 +1,6 @@
 package backend.project.service;
 
+import backend.project.dto.OrderDto;
 import backend.project.entity.PedidoAdmin;
 import backend.project.repository.PedidoAdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,9 @@ public class PedidoAdminService {
     @Autowired
     private PedidoAdminRepository pedidoAdminRepository;
 
-    public List<PedidoAdmin> BuscarTodos (){
+ /*   public List<PedidoAdmin> BuscarTodos (){
         return (List<PedidoAdmin>) pedidoAdminRepository.findAll();
-    }
+    }*/
 
     public Optional<PedidoAdmin> getById(Integer id){
         return pedidoAdminRepository.findById(id);
@@ -30,6 +31,16 @@ public class PedidoAdminService {
 
     public void eliminar (int id) {
         pedidoAdminRepository.deleteById(id);
+    }
+
+    public List<OrderDto>ObtenerPedidos(){
+        List<OrderDto> orderlist = pedidoAdminRepository.ObtenerPedidos();
+        orderlist.forEach(l -> System.out.println(l));
+        return orderlist;
+    }
+
+    public  Optional<PedidoAdmin> SearchPedido(int id){
+        return pedidoAdminRepository.findById(id);
     }
 
 

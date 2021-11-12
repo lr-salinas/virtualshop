@@ -1,16 +1,21 @@
 package backend.project.controllers;
 
+import backend.project.dto.OrderDto;
 import backend.project.entity.Categoria;
 import backend.project.entity.PedidoAdmin;
 import backend.project.entity.Producto;
+import backend.project.entity.User;
 import backend.project.service.CategoriaService;
 import backend.project.service.PedidoAdminService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.rmi.ServerException;
@@ -36,10 +41,15 @@ public class PedidoAdminController {
             @ApiResponse(responseCode = "404", description = "Order not found",
                     content = @Content) })
     //	OBTENER TODOS LOS PEDIDOS
-    @GetMapping
+   /* @GetMapping
     public List<PedidoAdmin> ListarTodos() {
 
         return pedidoAdminService.BuscarTodos();
+    }
+*/
+    @GetMapping
+    public ResponseEntity<List<OrderDto>> getDeptEmployeesInnerJoin(){
+        return new ResponseEntity<List<OrderDto>>(pedidoAdminService.ObtenerPedidos(), HttpStatus.OK);
     }
 
 
@@ -71,6 +81,12 @@ public class PedidoAdminController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") int id) {
         pedidoAdminService.eliminar(id);
+    }
+
+    @GetMapping("/{id}")
+    public Optional<PedidoAdmin> getByPedidoId(@Parameter(description = "id of pedido to be searched")
+                                      @PathVariable Integer id) {
+        return pedidoAdminService.SearchPedido(id);
     }
 
 }

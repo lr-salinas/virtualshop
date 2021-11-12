@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import backend.project.entity.Card;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -66,9 +67,9 @@ public class ProductoController{
 					content = @Content) })
 //	OBTENER PRODUCTO POR ID
 	@GetMapping("/{id}")
-	public Optional<Producto> getById (@PathVariable Integer id) {
-		
-		return (Optional<Producto>) productoService.getById(id);
+	public Optional<Producto> getById (@Parameter(description = "id of product to be searched")
+			@PathVariable Integer id) {
+		return  productoService.getById(id);
 	}
 
 	@Operation(summary = "Add new product")
