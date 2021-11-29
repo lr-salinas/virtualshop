@@ -6,6 +6,7 @@ public class OrderDto {
     private String size;
     private Integer cantidad;
 
+
     public OrderDto(String product_name, String details, String size, Integer cantidad) {
         this.product_name = product_name;
         this.details = details;

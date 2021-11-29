@@ -2,10 +2,7 @@ package backend.project.controllers;
 
 import backend.project.dto.CartDto;
 import backend.project.dto.MoreDto;
-import backend.project.entity.Cart;
-import backend.project.entity.Categoria;
-import backend.project.entity.Producto;
-import backend.project.entity.User;
+import backend.project.entity.*;
 import backend.project.service.CartService;
 import backend.project.service.MoreService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -30,6 +27,16 @@ import java.util.Optional;
 public class MoreController {
     @Autowired
     private MoreService moreService;
+
+    @Operation(summary = "Get more cart list")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the more cart",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = More.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "More cart not found",
+                    content = @Content) })
 
     @RequestMapping("/Admincart")
     @GetMapping

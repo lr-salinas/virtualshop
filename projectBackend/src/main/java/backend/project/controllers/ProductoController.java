@@ -124,17 +124,7 @@ public class ProductoController{
 		productoService.eliminar(id);
 	}
 	
-	
 
-//	@PostMapping
-////		 
-//	public ProductoModel PruebaPost(@RequestBody ProductoModel entrada) {
-//	ProductoModel p = entrada; p.setProduct_name("Roxana Vargas"); return p; }
-////	 
-//	 @GetMapping("/buscar") public String BuscarAlgo() { 
-//		 return "Otra Prueba GET";
-//	 }
-//	 
 
 }
 	

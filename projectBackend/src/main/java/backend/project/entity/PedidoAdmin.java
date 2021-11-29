@@ -13,6 +13,7 @@ public class PedidoAdmin {
     private int order_status_status_id;
     private int cantidad;
     private int product_id;
+    private String color;
 
     public PedidoAdmin () {
         super();
@@ -26,6 +27,7 @@ public class PedidoAdmin {
                 ", order_status_status_id=" + order_status_status_id +
                 ", cantidad=" + cantidad +
                 ", product_id=" + product_id +
+                ", color='" + color + '\'' +
                 '}';
     }
 
@@ -75,5 +77,13 @@ public class PedidoAdmin {
 
     public void setOrder_status_status_id(int order_status_status_id) {
         this.order_status_status_id = order_status_status_id;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

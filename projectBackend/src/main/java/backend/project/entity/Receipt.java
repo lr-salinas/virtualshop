@@ -65,6 +65,7 @@ public class Receipt {
         this.date = date;
     }
 
+
     @Override
     public String toString() {
         return "Receipt{" +

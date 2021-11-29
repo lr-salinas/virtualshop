@@ -8,14 +8,16 @@ public class PedidoAdminModel {
     private int order_status_status_id;
     private int cantidad;
     private int product_id;
+    private String color;
 
-    public PedidoAdminModel(int order_id, int user_id, int order_status_status_id, int cantidad, int product_id) {
+    public PedidoAdminModel(int order_id, int user_id, int order_status_status_id, int cantidad, int product_id, String color) {
         super();
         this.order_id = order_id;
         this.user_id = user_id;
         this.order_status_status_id = order_status_status_id;
         this.cantidad = cantidad;
         this.product_id = product_id;
+        this.color = color;
     }
 
     public int getProduct_id() {
@@ -57,6 +59,15 @@ public class PedidoAdminModel {
     public void setOrder_status_status_id(int order_status_status_id) {
         this.order_status_status_id = order_status_status_id;
     }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     public PedidoAdminModel() {
         super();
         // TODO Auto-generated constructor stub

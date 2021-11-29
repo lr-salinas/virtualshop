@@ -51,5 +51,17 @@ public class UserService {
         userRepository.save(user);
     }
 
+  /*  public User login(User user){
+        User user1 = new User();
+        user1.setUsername(user.getUsername());
+        user1.setPassword(user.getPassword());
+        User user2= new User();
+        if (userRepository.findPersonByNP(user1)!=null){
+            return userRepository.findPersonByNP(user1);
+        }else{
+            return user2;
+        }
+    }
 
+*/
 }

@@ -13,9 +13,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.rmi.ServerException;
 import java.util.List;
 import java.util.Optional;
@@ -28,12 +30,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
-    //GET para la obtencion de datos del usuario por id
- /*   @GetMapping("/{id}")
-    public Optional<User> getByUserId(@PathVariable Integer id){
-        return userService.SearchUser(id);
-    }*/
 
     @Operation(summary = "Get a user by its id")
     @ApiResponses(value = {
@@ -102,12 +98,6 @@ public class UserController {
         userService.DeleteUser(id);
     }
 
-    //	ACTUALIZAR UN USUARIO
-  /* @PutMapping("/{id}")
-    public User UpdateUser(@RequestBody User entityUser,@PathVariable int id){
-       return userService.UpdateUser(id,entityUser);
-   }*/
-
 
     @Operation(summary = "Update user")
     @ApiResponses(value = {
@@ -122,5 +112,19 @@ public class UserController {
 	public void updateUser(@RequestBody User user) {
 		userService.updateUser(user);
 	}
+
+  /*
+    @RequestMapping(value = "/login",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public User login(@RequestBody User user1, HttpServletRequest request) {
+        User user = userService.login(user1);
+        return user;
+    }
+*/
+
+
+
+
+
 
 }

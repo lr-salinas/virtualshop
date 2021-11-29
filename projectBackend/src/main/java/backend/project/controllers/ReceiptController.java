@@ -62,6 +62,9 @@ public class ReceiptController{
     public ResponseEntity<List<ReceiptDto>> getDeptEmployeesInnerJoin() {
         return new ResponseEntity<List<ReceiptDto>>(receiptService.ObtenerRecibos(), HttpStatus.OK);
     }
+
+
+
     @Operation(summary = "Get a receipt by its id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the rol",

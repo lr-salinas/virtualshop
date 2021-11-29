@@ -33,6 +33,7 @@ public class CardModel {
     public void setCard_id(int card_id) {
         this.card_id = card_id;
     }
+
 //    public int getUser_id() {
 //        return user_id;
 //    }

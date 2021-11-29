@@ -11,7 +11,7 @@ public class ReceiptModel {
     private int cart_id;
     private Date date;
 
-    public ReceiptModel(int receipt_id, int product_id, int user_id, int cart_id, int address_id, Date date) {
+    public ReceiptModel(int receipt_id, int product_id, int user_id, int cart_id, int address_id, Date date, String name_) {
         this.receipt_id = receipt_id;
         this.product_id = product_id;
         this.user_id = user_id;
@@ -67,6 +67,7 @@ public class ReceiptModel {
     public void setDate(Date date) {
         this.date = date;
     }
+
 
     public ReceiptModel() {
         super();
