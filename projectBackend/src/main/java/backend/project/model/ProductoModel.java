@@ -6,7 +6,7 @@ public class ProductoModel {
 	private String details;
 	private String size;
 	private int stock;
-	private int color;
+	private String color;
 	private int quantity;
 	//	private boolean available;
 	private double costProduct;
@@ -15,7 +15,7 @@ public class ProductoModel {
 	private int categoria_categoria_id;
 	private String image;
 
-	public ProductoModel(int product_id, String product_name, String details, String size, int stock, int color, int quantity, double costProduct, boolean status, int categoria_categoria_id, String image) {
+	public ProductoModel(int product_id, String product_name, String details, String size, int stock, String color, int quantity, double costProduct, boolean status, int categoria_categoria_id, String image) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
@@ -80,11 +80,11 @@ public class ProductoModel {
 		this.stock = stock;
 	}
 
-	public int getColor() {
+	public String getColor() {
 		return color;
 	}
 
-	public void setColor(int color) {
+	public void setColor(String color) {
 		this.color = color;
 	}
 
