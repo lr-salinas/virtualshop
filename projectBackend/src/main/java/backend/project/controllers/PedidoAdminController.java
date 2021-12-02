@@ -56,15 +56,9 @@ public class PedidoAdminController {
             @ApiResponse(responseCode = "404", description = "Order not found",
                     content = @Content) })
     //	OBTENER TODOS LOS PEDIDOS
-   /* @GetMapping
-    public List<PedidoAdmin> ListarTodos() {
-
-        return pedidoAdminService.BuscarTodos();
-    }
-*/
     @GetMapping
-    public ResponseEntity<List<OrderDto>> getDeptEmployeesInnerJoin(){
-        return new ResponseEntity<List<OrderDto>>(pedidoAdminService.ObtenerPedidos(), HttpStatus.OK);
+    public List<PedidoAdmin> ListarTodos() {
+        return pedidoAdminService.BuscarTodos();
     }
 
 
@@ -97,6 +91,8 @@ public class PedidoAdminController {
     public void eliminar(@PathVariable("id") int id) {
         pedidoAdminService.eliminar(id);
     }
+
+
 
 
 

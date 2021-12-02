@@ -1,8 +1,8 @@
 package backend.project.model;
 
-import backend.project.entity.PedidoAdmin;
+import backend.project.entity.Order;
 
-public class PedidoAdminModel {
+public class OrderModel {
     private int order_id;
     private int user_id;
     private int order_status_status_id;
@@ -10,14 +10,13 @@ public class PedidoAdminModel {
     private int product_id;
 
 
-    public PedidoAdminModel(int order_id, int user_id, int order_status_status_id, int cantidad, int product_id) {
+    public OrderModel(int order_id, int user_id, int order_status_status_id, int cantidad, int product_id) {
         super();
         this.order_id = order_id;
         this.user_id = user_id;
         this.order_status_status_id = order_status_status_id;
         this.cantidad = cantidad;
         this.product_id = product_id;
-
     }
 
     public int getProduct_id() {
@@ -60,8 +59,7 @@ public class PedidoAdminModel {
         this.order_status_status_id = order_status_status_id;
     }
 
-
-    public PedidoAdminModel() {
+    public OrderModel() {
         super();
         // TODO Auto-generated constructor stub
     }

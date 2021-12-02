@@ -11,15 +11,4 @@ import javax.persistence.criteria.From;
 import java.util.List;
 
 public interface PedidoAdminRepository extends CrudRepository <PedidoAdmin, Integer> {
-
-    @Query( "select new backend.project.dto.OrderDto(a.product_name,a.details, a.size, b.cantidad ) " +
-            "from Producto a, PedidoAdmin b " +
-            "where a.product_id = a.product_id and b.order_id=b.order_id ")
-    List<OrderDto> ObtenerPedidos();
-
-
-
- /*  @Query( value = " select u from  PedidoAdmin u where PedidoAdmin.cantidad >= 50  " )
-    List<OrderDto> ObtenerPedidos();*/
-
 }

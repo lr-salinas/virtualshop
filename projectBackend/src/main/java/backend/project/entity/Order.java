@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "order" ,schema = "public")
-public class PedidoAdmin {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "serial")
@@ -14,7 +14,8 @@ public class PedidoAdmin {
     private int cantidad;
     private int product_id;
 
-    public PedidoAdmin () {
+
+    public Order () {
         super();
     }
 
@@ -25,7 +26,7 @@ public class PedidoAdmin {
                 ", user_id=" + user_id +
                 ", order_status_status_id=" + order_status_status_id +
                 ", cantidad=" + cantidad +
-                ", product_id=" + product_id + product_id + '\'' +
+                ", product_id="  + product_id + '\'' +
                 '}';
     }
 
@@ -37,7 +38,7 @@ public class PedidoAdmin {
         this.product_id = product_id;
     }
 
-    public PedidoAdmin (int order_id, int user_id, int order_status_status_id) {
+    public Order (int order_id, int user_id, int order_status_status_id) {
         super();
         this.order_id = order_id;
         this.user_id = user_id;
